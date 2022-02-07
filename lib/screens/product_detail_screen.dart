@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:second_app/providers/products.dart';
+import '../providers/products.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   // final String title;
@@ -19,7 +19,7 @@ class ProductDetailScreen extends StatelessWidget {
     ).findById(productId);
     return Scaffold(
       appBar: AppBar(
-        title: Text('title'),
+        title: Text('loadedProduct.title'),
       ),
     );
   }
