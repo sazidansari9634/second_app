@@ -64,7 +64,9 @@ class Products with ChangeNotifier {
     notifyListeners();
   }
 
-  findById(String productId) {}
+  Product findById(String id) {
+    return _items.firstWhere((prod) => prod.id == id);
+  }
 }
 
 class _showFavoritesOnly {}
