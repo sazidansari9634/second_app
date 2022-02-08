@@ -7,7 +7,7 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<Card>(context); // error line
+    final cart = Provider.of<Cart>(context); // error line
     return Scaffold(
       appBar: AppBar(title: Text('Your Cart!')),
       body: Column(children: <Widget>[
@@ -15,19 +15,30 @@ class CartScreen extends StatelessWidget {
           margin: EdgeInsets.all(15),
           child: Padding(
             padding: EdgeInsets.all(8),
-            child: Row(children: <Widget>[
-              Text(
-                'Total',
-                style: TextStyle(fontSize: 20),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Chip(
-                label: Text('\$${'cart.totalAmount'}'),
-                backgroundColor: Theme.of(context).primaryColor,
-              ),
-            ]),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Total',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  Spacer(),
+                  Chip(
+                    label: Text(
+                      '\$${cart.totalAmount}',
+                      style: TextStyle(
+                        color:
+                            Theme.of(context).primaryTextTheme.subtitle1?.color,
+                      ),
+                    ),
+                    backgroundColor: Theme.of(context).primaryColor,
+                  ),
+                  FlatButton(
+                    child: Text('ORDER NOW!'),
+                    onPressed: () {},
+                    textColor: Theme.of(context).primaryColor,
+                  )
+                ]),
           ),
         ),
       ]),
