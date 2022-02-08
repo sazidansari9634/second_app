@@ -19,7 +19,7 @@ class ProductDetailScreen extends StatelessWidget {
     ).findById(productId);
     return Scaffold(
       appBar: AppBar(
-        title: Text('loadedProduct.title'),
+        title: Text('Product.title'),
       ),
     );
   }
