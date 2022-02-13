@@ -24,6 +24,13 @@ class Orders with ChangeNotifier {
     return [..._orders];
   }
 
+  Future<void> fetchAndSetOrders() async {
+    final url = Uri.parse(
+        'https://flutter-update-714fa-default-rtdb.firebaseio.com/orders/.json');
+    final response = await http.get(url);
+    print(json.decode(response.body));
+  }
+
   Future<void> addOrder(List<CartItem> cartProduct, double total) async {
     final url = Uri.parse(
         'https://flutter-update-714fa-default-rtdb.firebaseio.com/orders/.json');
